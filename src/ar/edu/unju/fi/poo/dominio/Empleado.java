@@ -9,7 +9,7 @@ public abstract class Empleado {
     protected Integer cantidadhijos;
     protected Date fechaNacimiento;
     protected Integer antiguedad;
-    protected Integer tipo;
+    protected String tipo;
     protected Integer categoria;
     public static final double SUELDO_BASICO = 150000;
 
@@ -65,11 +65,11 @@ public abstract class Empleado {
         this.antiguedad = antiguedad;
     }
 
-    public Integer getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(Integer tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -83,7 +83,7 @@ public abstract class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado " + id +", nombre=" + nombre + ", legajo=" + legajo + ", cantidad de hijos=" + cantidadhijos
+        return "Empleado " + id + ", nombre=" + nombre + ", legajo=" + legajo + ", cantidad de hijos=" + cantidadhijos
                 + ", fecha de nacimiento=" + fechaNacimiento + ", antigüedad=" + antiguedad;
     }
 }
