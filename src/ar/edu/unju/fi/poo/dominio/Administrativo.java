@@ -4,11 +4,15 @@ import java.util.Date;
 
 public class Administrativo extends Empleado {
     public Administrativo() {
-        this.tipo = 2;
+        this.tipo = "Administrativo";
     }
 
-    private static final double[] VALORES_CATEGORIA = { 10000, 14000, 18000, 30000,
-            40000 };
+    private static final double[] VALORES_CATEGORIA = {
+        10000, 14000, 18000, 22000, 26000, 
+        30000, 34000, 38000, 42000, 46000, 
+        50000, 54000, 58000, 62000, 66000, 
+        70000, 74000, 78000, 82000, 86000
+    };
 
     private int categoria;
 
@@ -17,6 +21,9 @@ public class Administrativo extends Empleado {
     }
 
     public void setCategoria(Integer categoria) {
+        if (categoria < 1 || categoria > 20) {
+            throw new IllegalArgumentException("Categoría debe estar entre 1 y 20.");
+        }
         this.categoria = categoria;
     }
 
@@ -27,7 +34,7 @@ public class Administrativo extends Empleado {
     @Override
     public double getSueldoNeto() {
 
-        System.out.println("Calculo sueldo Neto Administrativo");
+        System.out.println("****Calculo sueldo Neto Administrativo********");
 
         double remunerativosBonificables = super.getSueldoNeto()
                 + (categoria > 0 ? VALORES_CATEGORIA[categoria - 1] : 0) + (antiguedad * 7000);
@@ -35,6 +42,5 @@ public class Administrativo extends Empleado {
         double descuentos = 0.15 * remunerativosBonificables;
 
         return remunerativosBonificables + salarioFamiliar - descuentos;
-
     }
 }
