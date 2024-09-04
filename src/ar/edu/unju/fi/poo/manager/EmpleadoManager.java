@@ -1,6 +1,5 @@
 package ar.edu.unju.fi.poo.manager;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
