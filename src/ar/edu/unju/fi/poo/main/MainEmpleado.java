@@ -73,6 +73,7 @@ public class MainEmpleado {
             empleado.setCantidadhijos(cantidadhijos);
 
             System.out.println("Ingrese la fecha de nacimiento (formato dd/MM/yyyy): ");
+            // scanner.nextLine();
             String cadenafechaNacimiento = scanner.nextLine();
 
             SimpleDateFormat variableFormatoFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -80,13 +81,13 @@ public class MainEmpleado {
 
             try {
                 Fechanacimiento = variableFormatoFecha.parse(cadenafechaNacimiento);
-                
+                empleado.setFechanacimiento(Fechanacimiento);
             } catch (ParseException variableconexception) {
-                
                 variableconexception.printStackTrace();
                 System.out.println("Error al parsear la fecha");// Manejo de errores
-                return;
+                continue;  // Volver al inicio del ciclo si hay un error al parsear la fecha
             }
+
     
             double sueldoNeto = empleado.getSueldoNeto();
     
@@ -94,33 +95,31 @@ public class MainEmpleado {
     
             // Calcular la edad
             int edad = CalculadoraEdad.calcularEdad(Fechanacimiento);
-
-            // Mostrar la edad
             System.out.println("La edad es: " + edad + " años");
 
-            //  empleados.add(empleado);
+            // Agregar empleado a la lista
+            empleadosList.add(empleado);
 
             System.out.print("¿Desea continuar cargando empleados? (S/N): ");
             continuar = scanner.next();
             
         } while (continuar.equalsIgnoreCase("S"));
-        scanner.close();
-        // lista de empleados cargados
-        for (Empleado emp : empleadosList) {
-            System.out.println(emp.getNombre() + " - " + emp.getTipo());
+        // Mostrar empleados según edad
+        System.out.print("Ingrese la edad a partir de la cual desea buscar empleados: ");
+        int edadMinima = scanner.nextInt();
+
+        System.out.println("Empleados con edad mayor o igual a " + edadMinima + ":");
+        for (Empleado empleado : empleadosList) {
+            int edadEmpleado = CalculadoraEdad.calcularEdad(empleado.getFechanacimiento());
+            if (edadEmpleado >= edadMinima) {
+                System.out.println(empleado.getNombre() + " - Edad: " + edadEmpleado);
+            }
         }
 
-
-        // System.out.println("4)Ingrese la edad a partir de la cual desea buscar empleados: ");
-        // int edadDeseada = scanner.nextInt();
-
-        // EmpleadoManager.listarEmpleadosPorEdad(listaEmpleados, edadDeseada);
+        scanner.close();
 
         // EmpleadoManager.listarEmpleados(listaEmpleados);
 
-
-
-        // 4.Mostrar los empleados cuya edad sea mayor o igual a un valor solicitado al usuario.
         // 5. Calcular el importe neto acumulado de todos los empleados cuya edad sea mayor o igual a un valor solicitado al usuario.
         // 6. Incrementar en un 10% el salario básico a todos los empleados cuya antigüedad sea menor o igual a 2 años
         
