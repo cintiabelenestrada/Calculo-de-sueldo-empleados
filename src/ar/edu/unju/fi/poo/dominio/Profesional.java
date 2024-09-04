@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Profesional extends Empleado {
     public Profesional() {
-        this.tipo = 1;
+        this.tipo = "Profesional";
     }
 
     public static final double ADICIONAL_PROFESIONAL = 80000;
