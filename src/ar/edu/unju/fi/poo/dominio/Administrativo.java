@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Administrativo extends Empleado {
     public Administrativo() {
-        this.tipo = "Administrativo";
+        this.tipo = 2;
     }
 
     private static final double[] VALORES_CATEGORIA = { 10000, 14000, 18000, 30000,

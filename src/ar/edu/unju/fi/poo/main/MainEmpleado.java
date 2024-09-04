@@ -15,9 +15,9 @@ import ar.edu.unju.fi.poo.util.CalculadoraEdad;
 
 public class MainEmpleado {
     public static void main(String[] args) {
-
-        
         Scanner scanner = new Scanner(System.in);
+
+        List<Empleado> listaEmpleados = new ArrayList<>(); // Lista para almacenar empleados
 
         System.out.println("Ingrese el tipo de empleado (Administrativo/Profesional): ");
         String tipoEmpleado = scanner.nextLine();
@@ -96,7 +96,7 @@ public class MainEmpleado {
 
         List<Empleado> listaEmpleados = new ArrayList<>();
 
-        
+
         System.out.println("4)Ingrese la edad a partir de la cual desea buscar empleados: ");
         int edadDeseada = scanner.nextInt();
 
