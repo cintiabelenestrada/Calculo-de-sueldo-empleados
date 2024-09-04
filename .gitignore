@@ -1,0 +1,23 @@
+# Directorios de Maven
+/target/
+
+# Archivos de configuración de IDEs
+/.idea/
+/*.iml
+/.classpath
+/.project
+/.settings/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación
+*.class
+
+# Archivos de logs
+*.log
+
+# Archivos de configuración de herramientas
+/.vscode/
+/*.swp
